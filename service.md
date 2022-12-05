@@ -1,10 +1,10 @@
-Service: 
+**Service:** 
 
 Just like replica set / deployment. One use case is to listen to a port on the Node and forward requests on that port to a port on the POD running the web application
 
 ![2-1](pic/2-1.PNG)
 
-* Service types:
+* **Service types:**
 
   * **NodePort**: service mapped to a certain pod
 
@@ -25,6 +25,6 @@ Just like replica set / deployment. One use case is to listen to a port on the N
   * **LoadBalancer**
 
 
-* Endpoints:
+* **Endpoints:**
 
   * the service identifies all the posd with the same label and direct traffic to those pods. If additional pods created by accident with the same label, running `kubectl describe service service` will show all the endpoints.
