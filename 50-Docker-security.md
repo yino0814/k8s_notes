@@ -16,5 +16,6 @@ docker run --privileged ubuntu
 These can be configured in K8s as well, because containers are encapsulated in pods, so can config the security settings\
 at a **container level** or at a **pod level**.\
 If config at **pod level**, setting will be carried over to all containers within the pod.\
-if config at **container level**, setting on the container will override the settings on the pod
+if config at **container level**, setting on the container will override the settings on the pod\
+![pic](./pic/security-container-pod.PNG)
 ![pic](./pic/security-container.PNG)
