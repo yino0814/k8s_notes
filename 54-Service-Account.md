@@ -30,7 +30,7 @@ This token is then mount as a projected volume into the pod.
 #### decode the tocken
 ```
 jq -R 'split(".") | select(length > 0) | .[0],.[1] | @base64d | fromjson' <<< eyJhbGciOiJS.....```
-
+```
 Since 1.24, reduction of secret-based service account tokens.\
 So when you create a service account, it no longer creates a token, so must use `kubectl create token dashboard-sa` to manually create the token.
  
