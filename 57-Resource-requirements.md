@@ -5,6 +5,33 @@ By default, min requirement for the pod:
 |-|-|-|
 |0.5|256 mb||
 
+For the Pod to pick up these defaults, you must first set those as [default values for request and limit by creating a `LimitRange` in that ns](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource).
+```
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: mem-limit-range
+spec:
+  limits:
+  - default:
+      memory: 512Mi
+    defaultRequest:
+      memory: 256Mi
+    type: Container
+    
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-limit-range
+spec:
+  limits:
+  - default:
+      cpu: 1
+    defaultRequest:
+      cpu: 0.5
+    type: Container
+```
+
 And you can add to the definition under spec:containers:resources: **requests** and **limits**\
 1 count of cpu = 1 aws vCPU = 1 GCP Core = 1 Azure Core = 1 Hyperthread\
 0.1 cpu = 100m cpu, and min is 1m\
