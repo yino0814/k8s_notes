@@ -16,7 +16,7 @@ kubectl taint nodes node-1 app=blue:noSchedule-
 - 3 types of taint-effect: \
 `NoSchedule`: the pod will not be scheduled on the node\
 `PreferNoSchedule`: will try to avoid placing a pod on the node, but no guarantee\
-`NoExecute`: new pods will not be scheduled on the node and existing pods on the node if any will be evicted if they do not tolerate the taint.
+`NoExecute`: new pods will not be scheduled on the node and existing pods on the node if any will be evicted if they do not tolerate the taint.\
 ***Note:***\
 Adding the taints & toleration only restricts certain pods from being placed to the node, however it **doesn't guarantee** the pod with the toleration to be placed into the specific pod with the taint if the other pods doesn;t have taint and stuff (eg. `pod-D` could be placed in `node-2`or `node-3` by the scheduler.\
 To achieve this, we have the `node affinity`.
