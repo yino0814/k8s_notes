@@ -25,12 +25,13 @@ Avaliable:\
   preferredDuringSchedulingIgnoredDuringExecution **(Type 2)**\
 Planned:\
   requiredDuringSchedulingRequiredDuringExecution **(Type 3)**\
-#### Avaliable
+  
 | | DuringScheduling | DuringExecution|
 |-|-|-|
 |Type 1|Required|Ignored|
 |Type 2|Prefered|Ignored|
 |Type3|Required|Required|
+
 Type 1:\
 If required and cannot find the affinity, it will not be scheduled. Will be used where the placement of the pod is crucial.\
 Type 2:\
