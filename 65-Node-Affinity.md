@@ -24,7 +24,7 @@ Avaliable:\
   requiredDuringSchedulingIgnoredDuringExecution **(Type 1)** \
   preferredDuringSchedulingIgnoredDuringExecution **(Type 2)**\
 Planned:\
-  requiredDuringSchedulingRequiredDuringExecution **(Type 3)**\
+  requiredDuringSchedulingRequiredDuringExecution **(Type 3)**
   
 | | DuringScheduling | DuringExecution|
 |-|-|-|
@@ -38,5 +38,16 @@ Type 2:\
 If cannot find the matching node, the scheduler will simply ignore node affinity rules and place the pod to any avaliable node.\
 DuringExecuting s the state where a pod has been running and a change is made in the environment that affects node affinity\
 e.g. A change in the label of a node. Like the admin removes a label `size=Large` from the node, the pods will continue to run on the nodes and any changes to the node affinity will not impact them once they're scheduled.\
-Type 3:\
+Type 3:
 
+### Some useful command
+```
+# Label releated
+kubectl label node <node-name> <key>=<value>
+
+# Check which nodes can the pod for a deployment be placed on -> check the taints
+kubectl node <node-name> | grep Taints
+> Taints:              <none>
+
+kubectl create deployment <name> --image=nginx --replicas=3 --dry-run=clinet -o yaml > test.yaml
+```
